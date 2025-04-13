@@ -1,15 +1,9 @@
-import {
-  Image,
-  Pressable,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { useRouter } from "expo-router";
 import { icons } from "@/constants/icons";
 import { COLORS } from "@/constants/colors";
+import { images } from "@/constants/images";
 
 const MovieCard = ({
   id,
@@ -17,7 +11,7 @@ const MovieCard = ({
   title,
   vote_average,
   release_date,
-  original_language
+  original_language,
 }: Movie) => {
   const route = useRouter();
   return (
@@ -26,11 +20,13 @@ const MovieCard = ({
       onPress={() => route.push(`/movies/${id}`)}
     >
       <Image
-        source={{
-          uri: poster_path
-            ? `https://image.tmdb.org/t/p/w500/${poster_path}`
-            : "https://placeholder.co/600x400/1a1a1a/ffffff.png",
-        }}
+        source={
+          poster_path
+            ? {
+                uri: `https://image.tmdb.org/t/p/w500/${poster_path}`,
+              }
+            : images.noMovie
+        }
         style={{
           width: "100%",
           height: 200,
