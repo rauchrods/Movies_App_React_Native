@@ -17,6 +17,12 @@
     },
     "production": {
       "autoIncrement": true
+    },
+    "apk": {
+      "android": {
+        "buildType": "apk"
+      },
+      "autoIncrement": true
     }
   },
   "submit": {
