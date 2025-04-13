@@ -42,8 +42,6 @@ const MovieDetails = () => {
     error: movieDetailsError,
   } = useFetch(() => fetchMovieDetails({ id }));
 
-  console.log("moviedetails", movieDetails);
-
   //   console.log("movieDetails", movieDetails);
   return (
     <View style={{ flex: 1, backgroundColor: COLORS.primary }}>
