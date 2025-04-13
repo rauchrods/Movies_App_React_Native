@@ -4,11 +4,18 @@ import { COLORS } from "@/constants/colors";
 import { icons } from "@/constants/icons";
 
 interface SearchProps {
-  onPress: () => void;
+  onPress?: () => void;
   placeholder: string;
+  onChangeText?: (text: string) => void;
+  value?: string;
 }
 
-const SearchBar = ({ onPress, placeholder }: SearchProps) => {
+const SearchBar = ({
+  onPress,
+  placeholder,
+  onChangeText,
+  value,
+}: SearchProps) => {
   return (
     <View
       style={{
@@ -32,8 +39,8 @@ const SearchBar = ({ onPress, placeholder }: SearchProps) => {
       <TextInput
         onPress={onPress}
         placeholder={placeholder}
-        value={""}
-        onChangeText={() => {}}
+        value={value}
+        onChangeText={onChangeText}
         placeholderTextColor={"#A8B5DB"}
         style={{
           flex: 1,

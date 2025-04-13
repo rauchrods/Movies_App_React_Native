@@ -17,6 +17,7 @@ const MovieCard = ({
   title,
   vote_average,
   release_date,
+  original_language
 }: Movie) => {
   const route = useRouter();
   return (
@@ -45,13 +46,13 @@ const MovieCard = ({
       </Text>
       <View style={styles.rating}>
         <Image source={icons.star} />
-        <Text style={{ color: "white" }}>{Math.round(vote_average / 2)}</Text>
+        <Text style={{ color: "white" }}>{Math.round(vote_average)}</Text>
       </View>
       <View style={styles.releaseInfo}>
         <Text style={{ color: COLORS.light[200] }}>
           {release_date.split("-")[0]}
         </Text>
-        <Text style={{ color: COLORS.light[200] }}>{"Movie"}</Text>
+        <Text style={{ color: COLORS.light[200] }}>{original_language}</Text>
       </View>
     </TouchableOpacity>
   );
