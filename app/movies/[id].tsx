@@ -12,6 +12,7 @@ import useFetch from "@/services/useFetch";
 import { fetchMovieDetails } from "@/services/api";
 import { COLORS } from "@/constants/colors";
 import { icons } from "@/constants/icons";
+import { images } from "@/constants/images";
 
 const MovieInfo = ({
   label,
@@ -48,9 +49,13 @@ const MovieDetails = () => {
       <ScrollView style={{ paddingBottom: 40 }}>
         <View style={{}}>
           <Image
-            source={{
-              uri: `https://image.tmdb.org/t/p/w500/${movieDetails?.poster_path}`,
-            }}
+            source={
+              movieDetails?.poster_path
+                ? {
+                    uri: `https://image.tmdb.org/t/p/w500/${movieDetails?.poster_path}`,
+                  }
+                : images.noMovie
+            }
             style={{ width: "100%", height: 550 }}
             resizeMode="stretch"
           />
